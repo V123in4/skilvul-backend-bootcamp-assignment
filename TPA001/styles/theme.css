@@ -1,0 +1,35 @@
+* {
+    background-color: #02234f;
+    color:aliceblue;
+}
+
+h1 {
+    color: rgb(100, 214, 255);
+}
+
+footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 25vh;
+    background-color: #032d66;
+}
+
+footer * {
+    background-color: #032d66;
+}
+
+footer p {
+    font-size: large;
+    font-weight: bold;
+    margin-bottom: 1.7vh;
+}
+
+footer > div > a > i {
+    padding: 1.5vw;
+}
+
+footer > div > a > i:hover {
+    background-color: #02234f;
+}
