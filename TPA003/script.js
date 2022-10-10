@@ -61,4 +61,4 @@ let searchElement = document.getElementById("search");
 searchElement.addEventListener("submit", (e) => {
     e.preventDefault();
     search(document.getElementById("search-input").value);
-})
+});
