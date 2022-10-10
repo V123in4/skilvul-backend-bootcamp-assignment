@@ -1,5 +1,6 @@
 let key = "aae8e4d0286d58bbeffbbfbd6541b0c4";
 
+// startup function
 let discover = async () => {
     let result = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${key}&language=en-US&sort_by=popularity.desc`);
     let data = await result.json();
@@ -21,8 +22,7 @@ let discover = async () => {
     });
 }
 
-discover();
-
+// search function
 let search = async (query) => {
     let result = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${key}&page=1&query=${query}`);
     let data = await result.json();
@@ -54,11 +54,13 @@ let search = async (query) => {
         </div>
         `;
     });
-}
+} 
+
+discover(); // run on startup
 
 let searchElement = document.getElementById("search");
 
 searchElement.addEventListener("submit", (e) => {
     e.preventDefault();
     search(document.getElementById("search-input").value);
-});
+}); // event listeners
