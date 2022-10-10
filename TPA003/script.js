@@ -65,7 +65,7 @@ let search = async (query) => {
         });
     } catch (error) {
         console.log(error);
-        contentContainer.innerHTML = `<h1>Connection Failed</h1>`;
+        contentContainer.innerHTML = `<h1>Something Failed</h1>`;
         return;
     }
 } 
