@@ -27,7 +27,7 @@ main > div {
 
 figure > img {
     width: auto;
-    height: 100%
+    height: 100%;
 }
 
 figure > figcaption {
@@ -39,6 +39,7 @@ figure > figcaption {
 figure {
     display: flex;
     flex-direction: column;
+    height: 100%;
 }
 
 .rating {
