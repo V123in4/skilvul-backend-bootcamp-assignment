@@ -22,11 +22,12 @@ main {
 
 main > div {
     width: 20%;
-    margin: 2vw 2vw 2vw 2vw;
+    margin: 2vw 2vw 2vw 2vw
 }
 
 figure > img {
-    width: 100%;
+    width: auto;
+    height: 100%
 }
 
 figure > figcaption {
