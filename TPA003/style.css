@@ -1,65 +1,138 @@
-* {
-    margin: 0;
-    padding: 0;
-    font-size: 1.0vw;
+@media (min-width:601px) { 
+    * {
+        margin: 0;
+        padding: 0;
+        font-size: 1.0vw;
+    }
+    
+    header{
+        font-size: 1em;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    main {
+        display: flex;
+        flex-wrap: wrap;
+        width: 90vw;
+        margin-top: 5vh;
+        margin-left: 5vw;
+        margin-right: 5vw;  
+    }
+    
+    main > div {
+        width: 20%;
+        margin: 2vw 2vw 2vw 2vw
+    }
+    
+    figure > img {
+        width: auto;
+        height: 100%;
+    }
+    
+    figure > figcaption {
+        position: relative; 
+        height: 6vw;
+        border: 2px solid rgb(100, 137, 172);
+    }
+    
+    figure {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+    
+    .rating {
+        position: absolute;
+        right: 0.5vw;
+        top: 0.5vh;
+    }
+    
+    .release-date {
+        position: absolute;
+        bottom: 0.5vh;
+        left: 0.5vw;
+    }
+    
+    .movie-title {
+        position: absolute;
+        display: block;
+        width: 75%;
+        height: auto;
+        left: 0.5vw;
+        top: 0.5vh;
+        word-wrap: break-word;
+    }
 }
 
-header{
-    font-size: 1em;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
+/* responsive mobile */
+@media (max-width: 600px)  { 
+    * {
+        margin: 0;
+        padding: 0;
+        font-size: 4vw;
+    }
 
-main {
-    display: flex;
-    flex-wrap: wrap;
-    width: 90vw;
-    margin-top: 5vh;
-    margin-left: 5vw;
-    margin-right: 5vw;  
-}
+    header {
+        display: flex;
+        justify-content: space-between;
+        margin-right: 5vw;
+    }
 
-main > div {
-    width: 20%;
-    margin: 2vw 2vw 2vw 2vw
-}
+    header > form {
+        display: flex;
+        height: 50%;
+    }
 
-figure > img {
-    width: auto;
-    height: 100%;
-}
+    main {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100vw;
+        margin-top: 12vh;
+        margin-left: 5vw;
+        margin-right: 5vw;  
+    }
+    
+    main > div {
+        width: 46vw;
+        margin: 12vw 2vw 2vw 2vw;
+        height: 45vh;
+    }
 
-figure > figcaption {
-    position: relative; 
-    height: 6vw;
-    border: 2px solid rgb(100, 137, 172);
-}
+    figure > img {
+        width: 100%;
+        height: 75%;
+    }
 
-figure {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
+    figure > figcaption {
+        position: relative;
+        height: 12vh;
+    }
 
-.rating {
-    position: absolute;
-    right: 0.5vw;
-    top: 0.5vh;
-}
+    figure {
+        height: 50vh;
+    }
 
-.release-date {
-    position: absolute;
-    bottom: 0.5vh;
-    left: 0.5vw;
-}
-
-.movie-title {
-    position: absolute;
-    display: block;
-    width: 75%;
-    height: auto;
-    left: 0.5vw;
-    top: 0.5vh;
-    word-wrap: break-word;
+    .rating {
+        position: absolute;
+        right: 0.5vw;
+        top: 0.5vh;
+    }
+    
+    .release-date {
+        position: absolute;
+        bottom: 0.5vh;
+        left: 0.5vw;
+    }
+    
+    .movie-title {
+        position: absolute;
+        display: block;
+        width: 75%;
+        height: auto;
+        left: 0.5vw;
+        top: 0.5vh;
+        word-wrap: break-word;
+    }
 }
