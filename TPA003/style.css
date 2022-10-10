@@ -108,6 +108,7 @@
     figure > figcaption {
         position: relative;
         height: 12vh;
+        border: 3px solid aquamarine;
     }
 
     figure {
