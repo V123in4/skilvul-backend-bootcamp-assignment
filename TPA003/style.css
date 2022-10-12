@@ -80,11 +80,6 @@
         margin-right: 5vw;
     }
 
-    header > form {
-        display: flex;
-        height: 50%;
-    }
-
     main {
         display: flex;
         flex-wrap: wrap;
@@ -107,7 +102,7 @@
 
     figure > figcaption {
         position: relative;
-        height: 12vh;
+        height: 22vw;
         border: 3px solid rgb(100, 137, 172);
     }
 

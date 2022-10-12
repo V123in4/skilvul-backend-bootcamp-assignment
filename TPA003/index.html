@@ -18,13 +18,24 @@
 		<title>TMDB App</title>
 	</head>
 	<body>
-		<header>
-			<h1>Skilvul Movie</h1>
-			<form id="search">
-				<input type="text" id="search-input" />
-				<button type="submit" class="btn btn-primary">Search</button>
-			</form>
-		</header>
+		<nav class="navbar bg-light">
+			<div class="container-fluid">
+				<a class="navbar-brand">Skilvul Movie</a>
+				<form class="d-flex" role="search" id="search">
+					<input
+						class="form-control me-2"
+						type="search"
+						placeholder="Search"
+						aria-label="Search"
+						id="search-input"
+					/>
+					<button class="btn btn-outline-success" type="submit">
+						Search
+					</button>
+				</form>
+			</div>
+		</nav>
+
 		<main id="content"></main>
 	</body>
 </html>
