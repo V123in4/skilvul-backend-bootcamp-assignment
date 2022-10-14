@@ -13,7 +13,7 @@ let myPromise = (param) => {
     }
 }
 ```
-Promise digunakan dengan cara memanggilnya dan menggunakan `then` untuk kasus berhasil dan `catch` untuk kasus gagal. Perlu diingat pernyataan `then` dapat dichain dengan cara mengembalikan value di then sebelum then kedua.
+Promise digunakan dengan cara memanggilnya dan menggunakan `then` menangkap untuk kasus berhasil dan `catch` untuk kasus gagal. Perlu diingat pernyataan `then` dapat dichain dengan cara mengembalikan value di then sebelum then kedua.
 ```js
 myPromise("True")
 .then((result) => { // case berhasil
@@ -29,52 +29,41 @@ myPromise("True")
 ```
 
 # Async & Await
-
-# Fetch
+async seperti yang pernah dibahas membuat sebuah fungsi berjalan secara pararel. Await digunakan untuk menunggu sebuah value sampai selesai.
 
 ```js
-// promise creation (membuat object promise)
-let nonton = (kondisi) => {
-  return new Promise((resolve, reject) => {
-    if (kondisi == "jalan") {
-      resolve("nonton terpenuhi")
-    }
-    reject("batal nonton")
-  })
-}
+async function myFunctionAsync() {
+	try {
+		let result = await myPromise("True"); // tunggu hasil promise
+		console.log(result); // tangkap jika berhasil
+	} catch (error) {
+		console.log(error); // tangkap jika gagal
+	}
+} // definisikan fungsi async
 
-// utk menjalankan kode promise di atas
-// ada 2 cara
-// - promise (then catch)
-// - async await
+myFunctionAsync() // panggil fungsi async 
+// ingat pembuatan function tidak memanggil fungsi, sehingga 
+// fungsi async yang dibuat harus dipanggil setelah dibuat
+```
 
-// ===================== Promise ===================
-// promise
-// namaPromis.then().catch()
-nonton("jalan")
+# Fetch
+fetch merupakan sebuah aplikasi dari promisea, sehingga dapat dibilang fetch adalah object dari promise. Fetch digunakan dengan cara memberikan sebuah argument url 
+
+```js
+const url = (param) => `https://www.google.com/search?q=${param}` // url berikut untuk berguna untuk search dengan google.
+
+fetch(url("test"))
 .then(result => {
-  console.log(result);
-}).catch(err => {
-  console.log(err)
+	console.log(result);
 })
-
-// ===================== async await ===============
-// async await -> car utk nangkep obj promise
-// buat async function
-async function asyncNonton() {
-  try {
-    let result = await nonton("jalan")
-    console.log(result);
-  } catch (error) {
-    console.log(error)
-  }
-}
-asyncNonton()
-
-// async arrow
-// let asyncNonton = async () => { }
+.catch(error => {
+	console.log(error);
+})
+```
 
 
+# Aplikasi Fetch dan Async Await pada API 
+```js
 // ==================== FETCH ========================
 // fetch -> obj promise
 // di handle menggunakan promise atau async await
