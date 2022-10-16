@@ -51,7 +51,7 @@ $ git branch -d "dev"
 
 
 
-# Conflict and resolving
+# Merge Conflict and Resolving
 konflik terjadi ketika ada yang merubah sebuah file pada baris yang sama.
 
 mungkin lebih mudah dimengerti jika kita menejelaskannya menggunakan kasus.
@@ -109,4 +109,14 @@ dilangit
 biru
 ```
 
-jika memilih `accept both changes` maka perubahan kedua file akan ditambahkan berurutan 
+jika memilih `accept both changes` maka perubahan kedua file akan ditambahkan berurutan menjadi
+
+```
+merah
+kuning
+hijau
+dilangit
+biru
+apple
+anggur
+```
