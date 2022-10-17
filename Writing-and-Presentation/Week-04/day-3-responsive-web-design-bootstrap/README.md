@@ -109,4 +109,6 @@ contoh navbar pada website bootstrap
   </div>
 </nav>
 ```
-sebetulnya seluruh contoh bootstrap dapat dilihat di dokumentasi bootstrap dan dapat diedit sesuai kebutuhan.
+seluruh contoh bootstrap dapat dilihat di dokumentasi bootstrap dan dapat diedit sesuai kebutuhan.
+
+link : https://getbootstrap.com/docs/5.2/
