@@ -37,6 +37,7 @@ fs.readFile("./347324342.txt", "utf8", (err, data) => {
     }
     console.log(data);
 });
+// fs.readFule("./path/ke/file", "encoding", callback);
 
 // write to a file
 fs.writeFile("./347324342.txt", "AAAAAAAAAAA", (err) => {
@@ -45,6 +46,7 @@ fs.writeFile("./347324342.txt", "AAAAAAAAAAA", (err) => {
     }
     console.log("file made successfully");
 });
+// fs.writeFile("./path/ke/file". "data yang ingin ditulis", callback);
 ```
 # Library Event (events)
 events dapat membuat dan juga menangkap event pada node js disini kita hanya membahas pembuatan dan penangkapan event lebih lengkap [klik disini](https://nodejs.org/api/events.html)
@@ -80,4 +82,19 @@ pembuatan webserver tidak menggunakan library `express` untuk penggunaan `expres
 
 // menggunakan require untuk import library 
 const http = require("http");
+
+// tentukan port yang ingin dipakai
+const PORT = 8080;
+
+
+// buat "server"
+http
+.createServer((request, response) => {
+    res.write("Hello from http NodeJS");
+    res.end(); // penting!!, menandakan response sudah selesai
+})
+.listen(PORT, () => {
+    // pesan inisialisasi
+    console.log(`server init ${PORT}`);
+});
 ```
