@@ -86,7 +86,6 @@ const http = require("http");
 // tentukan port yang ingin dipakai
 const PORT = 8080;
 
-
 // buat "server"
 http
 .createServer((request, response) => {
@@ -95,6 +94,6 @@ http
 })
 .listen(PORT, () => {
     // pesan inisialisasi
-    console.log(`server init ${PORT}`);
+    console.log(`server init at https://localhost:${PORT}`);
 });
 ```
