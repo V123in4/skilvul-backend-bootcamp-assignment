@@ -27,7 +27,7 @@ Pengimplementasian client dan server dapat terpisah, dan independen bahkan serve
 
 # URL Membuat Request
 URL terdiri dari beberapa komponen dan juga dibalik URL ada beberapa komponen
-1. **http method**
+1. **http method** yang sering digunakan lebih lengkap [disini](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)
    1. GET, mengambil data.
    2. POST, mem**POSTING** / membuat data.
    3. PUT, update data.
@@ -52,4 +52,4 @@ response code dibagi menjadi 5:
 4. 4xx, masalah pada client (**client error**).
 5. 5xx, masalah pada server (**server error**).
 
-detail seluruh response code tidak perlu dihafalkan tapi dapat diliat di tabel, namun secara garis besar kode respon harus diketahui.
+detail seluruh response code tidak perlu dihafalkan tapi dapat diliat di [tabel](https://https://developer.mozilla.org/en-US/docs/Web/HTTP/Status), namun secara garis besar kode respon harus diketahui.
