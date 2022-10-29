@@ -49,7 +49,7 @@ Menggunakan link kita dapat passing data sebagai berikut.
 ```http
 https://host.com/get-data?param1=arg1&param2=arg2 ...
 ```
-dapat terus berlanjut sesuai dengan keperluan. Link diatas mempassing data `{"param1":"arg1", "param2":"arg2"}`;
+dapat terus berlanjut sesuai dengan keperluan. Link diatas mempassing data `{"param1":"arg1", "param2":"arg2"}`
 # Response Code
 response code dibagi menjadi 5:
 1. 1xx, **informational**.
