@@ -40,7 +40,14 @@ Proses analisis:
 1. apakah dosen dapat mengajar banyak mahasiswa? **Ya** (1 to M)
 2. apakah mahasiswa dapat diajarkan oleh banyak dosen? **Ya** (M to 1)
 
-sehingga relasi adalah M to M.
+sehingga relasi adalah M to M. Relasi M to M membutuhkan konjungsi untuk mengubungkan antar relasi. Hubungan dari M to M menjadi M to 1 ke tabel konjungsi.
+
+contoh Hubungan M to M tanpa tabel konjungsi, dapat dilihat data setiap baris saling berhubungan.
+
+![](images/m_to_m.png)
+
+hubungan diberikan tabel konjungsi, disini tabel konjungsi berisi kedua ID untuk menghubungkan antar relasi.
+![](images/m_to_m1.png)
 
 # Normalisasi Database
 Tujuan database dinormalisasi adalah merapikannya supaya data didalam tabel:
