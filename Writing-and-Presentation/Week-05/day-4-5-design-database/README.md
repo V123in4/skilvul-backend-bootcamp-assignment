@@ -55,7 +55,7 @@ Tujuan database dinormalisasi adalah merapikannya supaya data didalam tabel:
    1. tidak ada data duplikat
 2. mudah dicari
 3. tidak terjadi anomali
-   1. anomali adalah sebuah baris data yang tidak lengkap sehingga ada kolom yang kosong. Data id 3 adalah anomali karena kosong. anomali terjadi akibat insertion yang update, delete yang salah.
+   1. anomali adalah sebuah baris data yang tidak lengkap sehingga ada kolom yang kosong. Data id 3 adalah anomali karena kosong. anomali terjadi akibat insertion, update, delete yang salah.
 
         |id|data1|data2|
         |---|---|---|
