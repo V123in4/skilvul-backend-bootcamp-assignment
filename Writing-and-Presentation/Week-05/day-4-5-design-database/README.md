@@ -81,3 +81,18 @@ Jika sebuah entity mahasiswa berisikan primary key (PK) NIM, nama, email, musik_
 ### NR 3
 1. Tabel dalam bentuk NR2.
 2. Tidak ada transitif depedency. Artinya setiap atribut harus begantung pada primary key.
+
+transitif depedency adalah sebuah data yang bergantung dengan data lain di baris yang sama. contoh data A berubah jika ada perubahan dari data B.
+
+ada range jelek 1-3, baik 4-6. jika ada perubahan data di baris 1, dari 1 ke 5
+|id|A|B|
+|---|---|---|
+|1|1|jelek|
+
+menjadi,
+
+|id|A|B|
+|---|---|---|
+|1|5|jelek|
+
+data B masih jelek meskipun seharusnya baik, inilah yang disebut dengan transitif depedency
