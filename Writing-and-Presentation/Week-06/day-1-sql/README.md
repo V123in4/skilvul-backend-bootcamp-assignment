@@ -94,7 +94,7 @@ select * from table_name limit N;
 select * from table_name order by coloumn ASC|DESC
 /*
 jika coloum angka maka akan di sort dari terkecil|terbesar
-jika coloum huruf maka akan di sort dari z|a
+jika coloum huruf maka akan di sort dari a|z
 */
 
 ```
