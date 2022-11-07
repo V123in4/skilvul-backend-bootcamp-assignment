@@ -102,9 +102,10 @@ user mengirimkan data indentifikasi
 
 ```js
 // ada di file router
-const KEY = a6b1840c1cc475c14f9e14218a6d755a6ac7a8dee631bd26d95dd6749758a65b;
-const { id } = req.body;
+const KEY = a6b1840c1cc475c14f9e14218a6d755a6ac7a; // contoh key yang digunakan
+const { id } = req.body; // contoh data yang digunakan
 
+// disini token dibuat
 const token = jwt.sign(
     {
         id,
@@ -115,13 +116,21 @@ const token = jwt.sign(
 res.status(200).json({
     "message" : "Berhasil",
     token
-});
+}); // token dikirimkan kembali ke user dengan sebuah pesan dalam beuntuk json
 ```
 
 ## jwt.verify()
 untuk memverifikasi token yang dikirimkan kita bisa menggunakan fungsi verify, jika verify gagal maka token yang diberikan invalid atau ada perbahan, jika berhasil informasi akan didecode dan dikembalikan ke bentuk semula
 ```js
+const { token } = req.headers.authorization.split(' ')[1];
+/*
+mengingat standard bearer dengan format
+Bearer this_is_your_token
+*/
+
+// token didecode dengan key menjadi data yang bisa dimengerti
 const decoded = jwt.verify(token, KEY);
+
 console.log(decoded);
 ```
 
