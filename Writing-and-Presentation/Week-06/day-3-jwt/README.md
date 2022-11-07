@@ -67,7 +67,7 @@ User <---> server <--- secret
 3. server mengirimkan token kembali untuk identifikasi user tersebut.
 4. setiap request selanjutnya user bisa mengirimkan token untuk menandakan user tersebutlah yang membuat aksi.
 5. server bisa verifikasi dengan cara decrypt menggunakan secret.
-6. jika user merubah token server akan menolah permintaan dari user.
+6. jika user merubah token server akan menolak permintaan dari user.
 
 # JWT
 ## Installasi
@@ -89,7 +89,9 @@ xxxx -> header value umumnya berisi algoritma dan tipe token
 
 yyyy -> body atau data
 
-zzzz -> signature berisikan `base64UrlEncode(header) + "." + base64UrlEncode(payload), KEY`
+zzzz -> signature berisikan `HMACSHA256(base64UrlEncode(header) + "." + base64UrlEncode(payload), KEY)`
+
+penggunaan token yang baik dengan cara menggunakan expire dan mengirimkan token bari setiap user melakukan sebuah aksi. Tetapi untuk kali ini untuk mempemudah penjelasan expire **tidak** digunakan.
 ## jwt.sign()
 ```js
 jwt.sign(data, key, { /* options */ });
