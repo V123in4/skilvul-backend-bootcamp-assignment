@@ -2,10 +2,11 @@
 Database adalah sebuah tempat dimana data disimpan dalam bentuk tabel dan data dari tabel dapat diakses menggunakan query. Database berada dibalik layar yang umumnya berbeda dengan server yang terhubung dengan dunia luar(internet). Server database biasanya hanya local dan interaksi database hanya melalui server utama yang meminta data untuk keperluan processing.
 
 # SQL data type
-1. Integer
+1. Integer, bilangan bulat biasanya digunakan untuk id
 2. Float
-3. varchar(N), variabel string dengan panjang N
-4. date
+3. Double
+4. varchar(N), variabel string dengan panjang N
+5. date, digunakan untuk tanggal
 # Key
 ## Primary Key
 primary key adalah kunci utama yang membedakan antara baris data. sehingga data dapat diindentifikasi berdasarkan primary key.
