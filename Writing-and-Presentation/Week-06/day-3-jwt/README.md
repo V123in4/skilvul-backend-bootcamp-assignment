@@ -58,3 +58,68 @@ hash menjadi sangat berbeda meski ditambah salt sedikit saja.
 # JWT
 ![](./pengertian-kasar-jwt.png) catatan saat kelas
 
+### Flow JWT
+```
+User <---> server <--- secret
+```
+1. user mengirimkan data untuk autentikasi.
+2. server akan membuat token dengan data dan sebuah secret key.
+3. server mengirimkan token kembali untuk identifikasi user tersebut.
+4. setiap request selanjutnya user bisa mengirimkan token untuk menandakan user tersebutlah yang membuat aksi.
+5. server bisa verifikasi dengan cara decrypt menggunakan secret.
+6. jika user merubah token server akan menolah permintaan dari user.
+
+# JWT
+## Installasi
+```bash
+npm install jsonwebtoken
+```
+seperti library lainnya jwt juga harus di import menggunakan
+```js
+const jwt = require("jsonwebtoken");
+```
+kemudian baru bisa digunakan.
+
+## JWT tokening
+token pada jwt dibagi menjadi 3 bagian
+```
+xxxx.yyyy.zzzz
+```
+xxxx -> header value umumnya berisi algoritma dan tipe token
+
+yyyy -> body atau data
+
+zzzz -> signature berisikan `base64UrlEncode(header) + "." + base64UrlEncode(payload), KEY`
+## jwt.sign()
+```js
+jwt.sign(data, key, { /* options */ });
+```
+contoh penggunaan:
+
+user mengirimkan data indentifikasi
+
+```js
+// ada di file router
+const KEY = a6b1840c1cc475c14f9e14218a6d755a6ac7a8dee631bd26d95dd6749758a65b;
+const { id } = req.body;
+
+const token = jwt.sign(
+    {
+        id,
+    },
+    KEY
+);
+
+res.status(200).json({
+    "message" : "Berhasil",
+    token
+});
+```
+
+## jwt.verify()
+untuk memverifikasi token yang dikirimkan kita bisa menggunakan fungsi verify, jika verify gagal maka token yang diberikan invalid atau ada perbahan, jika berhasil informasi akan didecode dan dikembalikan ke bentuk semula
+```js
+const decoded = jwt.verify(token, KEY);
+console.log(decoded);
+```
+
