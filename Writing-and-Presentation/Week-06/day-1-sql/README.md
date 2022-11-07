@@ -12,7 +12,7 @@ Database adalah sebuah tempat dimana data disimpan dalam bentuk tabel dan data d
 primary key adalah kunci utama yang membedakan antara baris data. sehingga data dapat diindentifikasi berdasarkan primary key.
 
 ## Foreign Key
-feoreign key adalah kunci primer yang berada ditabel lain untuk disambungkan. Biasa digunakan untuk tabel konjungsi pada relasi M to M dan relasi M to 1.
+feoreign key adalah kunci primer yang berada ditabel lain untuk disambungkan. Biasa digunakan untuk tabel konjungsi pada relasi M to M. Tidak hanya M to M, tetapi 1 to 1 juga dapat menggunakan foreign key.
 
 # SQL Basic
 Berikut adalah list dari query database dasar yang sering digunakan dengan sedikit penjelasan:
@@ -73,6 +73,9 @@ query bisa dibilang
 select all from table_name
 */
 ```
+
+# WHERE!!
+query where mengambil nilai yang memenuhi sebuah kondisi data yang diberikan.
 
 # SQL edit data
 ```sql
