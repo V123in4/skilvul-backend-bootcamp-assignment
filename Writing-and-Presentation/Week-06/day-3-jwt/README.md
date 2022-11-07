@@ -56,4 +56,5 @@ hash SHA-1 : 03cf1e8d9b221ba8918e4d4dc415c3aa4cad0b42
 hash menjadi sangat berbeda meski ditambah salt sedikit saja.
 
 # JWT
+![](./pengertian-kasar-jwt.png) catatan saat kelas
 
