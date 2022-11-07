@@ -1,6 +1,18 @@
 # Database
 Database adalah sebuah tempat dimana data disimpan dalam bentuk tabel dan data dari tabel dapat diakses menggunakan query. Database berada dibalik layar yang umumnya berbeda dengan server yang terhubung dengan dunia luar(internet). Server database biasanya hanya local dan interaksi database hanya melalui server utama yang meminta data untuk keperluan processing.
 
+# SQL data type
+1. Integer
+2. Float
+3. varchar(N), variabel string dengan panjang N
+4. date
+# Key
+## Primary Key
+primary key adalah kunci utama yang membedakan antara baris data. sehingga data dapat diindentifikasi berdasarkan primary key.
+
+## Foreign Key
+feoreign key adalah kunci primer yang berada ditabel lain untuk disamungkan. Biasa digunakan untuk tabel konjungsi pada relasi M to M dan M to 1.
+
 # SQL Basic
 Berikut adalah list dari query database dasar yang sering digunakan dengan sedikit penjelasan:
 
@@ -66,7 +78,10 @@ select all from table_name
 -- mengedit data
 update table_name set coloumn_name = "new_value" where condition;
 -- update tabel pada coloumn_name dimana condition(true);
+```
 
+# SQL delete data
+```sql
 -- delete data
 delete from table_name where condition;
 -- hapus data di table_name dimana condition(true);
