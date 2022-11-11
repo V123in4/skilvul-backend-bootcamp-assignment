@@ -1,4 +1,4 @@
-create table order_product (
+create table orders_products (
     id int primary key not null auto_increment,
     id_order int,
     id_product int,
