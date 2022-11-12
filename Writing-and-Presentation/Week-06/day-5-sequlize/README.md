@@ -52,7 +52,7 @@ npx sequelize db:create
 ```
 
 ### Membuat model
-model disini bersifat seperti tabel tetapi bukan tabel
+model disini bersifat seperti tabel tetapi bukan tabel, disini primary key id akan dibuat secara otomatis
 ```bash
 npx sequelize-cli model:generate --name nama_table --attributes nama_coloumn1:tipe_data_coloumn1,nama_coloumn2:tipe_data_coloumn2, ... nama_coloumnN:tipe_data_coloumnN
 ```
