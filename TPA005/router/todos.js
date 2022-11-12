@@ -9,10 +9,10 @@ const middlewares = [express.json(), checkUpdateToken];
 router.use(middlewares);
 
 // controller
-const { createToDo } = require("../controller/todos");
+const { createToDo, getAll } = require("../controller/todos");
 
 // get all todo without desc
-router.get("/", (req, res) => null);
+router.get("/", getAll);
 
 // buat todo baru
 router.post("/new", createToDo);

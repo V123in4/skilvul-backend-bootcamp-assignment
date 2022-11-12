@@ -19,9 +19,11 @@ module.exports = {
 				error: "Bearer is not used",
 			});
 		}
-		const payload = {
-			id: data.id,
-		};
+
+		// // unfinised payload
+		// const payload = {
+		// 	id: data.id,
+		// };
 
 		// developer bypass
 		if (oldToken == process.env.DEV_KEY) {
@@ -37,11 +39,16 @@ module.exports = {
 			}
 		}
 
+		const payload = {
+			id: jwt.verify(oldToken, process.env.SECRET_KEY).id,
+		};
+
 		// update token
-		req.body.newToken = jwt.sign(payload, process.env.SECRET_KEY, {
+		req.headers.authorization = jwt.sign(payload, process.env.SECRET_KEY, {
 			expiresIn: "2h",
 		});
 
 		next();
 	},
+	getAll: (req, res) => {},
 };

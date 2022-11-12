@@ -1,8 +1,14 @@
 const express = require("express");
 const router = express.Router();
-const jwt = require("jsonwebtoken");
+
+const { loginUser } = require("../controller/login");
 
 // login
-router.post((req, res) => null);
+// middleware
+const middlewares = [express.json()];
+
+router.use(middlewares);
+
+router.post("/", loginUser);
 
 module.exports = router;
