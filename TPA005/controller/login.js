@@ -18,7 +18,7 @@ module.exports = {
 		});
 
 		if (query == null) {
-			res.status(403).send({
+			res.status(401).send({
 				message: "apakah anda sudah mendaftar?",
 			});
 			return;
@@ -36,7 +36,7 @@ module.exports = {
 					token,
 				});
 			} else {
-				res.status(403).send({
+				res.status(401).send({
 					message: "password yang anda gunakan salah",
 				});
 				return;
