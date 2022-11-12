@@ -20,11 +20,6 @@ module.exports = {
 			});
 		}
 
-		// // unfinised payload
-		// const payload = {
-		// 	id: data.id,
-		// };
-
 		// developer bypass
 		if (oldToken == process.env.DEV_KEY) {
 			console.log("developer key used");
@@ -39,14 +34,17 @@ module.exports = {
 			}
 		}
 
+		// same payload from token
 		const payload = {
 			id: jwt.verify(oldToken, process.env.SECRET_KEY).id,
 		};
 
-		// update token
-		req.headers.authorization = jwt.sign(payload, process.env.SECRET_KEY, {
-			expiresIn: "2h",
-		});
+		// update token header
+		req.headers.authorization =
+			"Bearer " +
+			jwt.sign(payload, process.env.SECRET_KEY, {
+				expiresIn: "2h",
+			});
 
 		next();
 	},
