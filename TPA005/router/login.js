@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
+const jwt = require("jsonwebtoken");
 
-router.get();
+// login
+router.post((req, res) => null);
 
 module.exports = router;
