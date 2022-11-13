@@ -9,24 +9,35 @@ const middlewares = [express.json(), checkUpdateToken];
 router.use(middlewares);
 
 // controller
-const { createToDo, getAll } = require("../controller/todos");
+const {
+	createToDo,
+	getAll,
+	getDescAll,
+	getDescById,
+	editToDo,
+	deleteToDoAll,
+	deleteToDoById,
+} = require("../controller/todos");
 
 // get all todo without desc
 router.get("/", getAll);
 
-// buat todo baru
+// make new todo
 router.post("/new", createToDo);
 
-// lihat detail dari todo
-router.get("/detail", (req, res) => null);
+// get todo desc
+router.get("/detail", getDescAll);
+
+// get todo desc by id
+router.get("/detail/:id", getDescById);
 
 // edit todo by id
-router.post("/edit/:id", (req, res) => null);
+router.post("/edit/:id", editToDo);
 
 // delete all
-router.delete("/delete", (req, res) => null);
+router.delete("/delete", deleteToDoAll);
 
 // delete by id
-router.delete("/delete/:id", (req, res) => null);
+router.delete("/delete/:id", deleteToDoById);
 
 module.exports = router;

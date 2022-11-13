@@ -9,42 +9,45 @@ function arrayRemove(arr, value) {
 
 module.exports = {
 	checkUpdateToken: async function (req, res, next) {
-		const data = req.body;
-		const auth = req.headers.authorization.split(" ");
-		const oldToken = auth[0] === "Bearer" ? auth[1] : "Not Bearer";
+		try {
+			const auth = req.headers.authorization.split(" ");
+			const oldToken = auth[0] === "Bearer" ? auth[1] : "Not Bearer";
 
-		// check bearer standard
-		if (oldToken == "Not Bearer") {
-			res.status(401).send({
-				error: "Bearer is not used",
-			});
-		}
-
-		// developer bypass
-		if (oldToken == process.env.DEV_KEY) {
-			console.log("developer key used");
-		} else {
-			// check token validity
-			try {
-				jwt.verify(oldToken, process.env.SECRET_KEY);
-			} catch (error) {
+			// check bearer standard
+			if (oldToken == "Not Bearer") {
 				res.status(401).send({
-					error,
+					error: "Bearer is not used",
 				});
 			}
+
+			// developer bypass
+			if (oldToken == process.env.DEV_KEY) {
+				console.log("developer key used");
+			} else {
+				// check token validity
+				try {
+					jwt.verify(oldToken, process.env.SECRET_KEY);
+				} catch (error) {
+					res.status(401).send({
+						error,
+					});
+				}
+			}
+
+			// same payload from token
+			const payload = {
+				id: jwt.verify(oldToken, process.env.SECRET_KEY).id,
+			};
+
+			// update token header
+			req.headers.authorization =
+				"Bearer " +
+				jwt.sign(payload, process.env.SECRET_KEY, {
+					expiresIn: "2h",
+				});
+		} catch (error) {
+			res.status(400).send(error);
 		}
-
-		// same payload from token
-		const payload = {
-			id: jwt.verify(oldToken, process.env.SECRET_KEY).id,
-		};
-
-		// update token header
-		req.headers.authorization =
-			"Bearer " +
-			jwt.sign(payload, process.env.SECRET_KEY, {
-				expiresIn: "2h",
-			});
 
 		next();
 	},
