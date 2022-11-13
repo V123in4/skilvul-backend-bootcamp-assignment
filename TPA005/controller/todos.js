@@ -4,8 +4,8 @@ const jwt = require("jsonwebtoken");
 
 const todo_list = db.todo_list;
 
-const jwtID = async (token) => {
-	return await jwt.verify(token, process.env.SECRET_KEY);
+const jwtID = (token) => {
+	return jwt.verify(token, process.env.SECRET_KEY);
 };
 
 module.exports = {
@@ -109,7 +109,7 @@ module.exports = {
 
 		const payload = {
 			token: req.headers.authorization,
-			message: `All Todo for user ${id_user} Deleted Succesfully`,
+			message: `All Todo for user ${id_user.id} Deleted Succesfully`,
 		};
 
 		res.status(200).send(payload);

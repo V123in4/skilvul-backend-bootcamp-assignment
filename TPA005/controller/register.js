@@ -19,6 +19,7 @@ module.exports = {
 			res.status(400).send({
 				message: "email already registered",
 			});
+			return;
 		}
 
 		// insert data
@@ -36,5 +37,6 @@ module.exports = {
 		res.status(201).send({
 			message: "account succesfully created",
 		});
+		return;
 	},
 };

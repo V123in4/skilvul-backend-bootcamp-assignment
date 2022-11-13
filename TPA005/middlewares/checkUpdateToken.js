@@ -3,10 +3,6 @@ const jwt = require("jsonwebtoken");
 const express = require("express");
 const { send } = require("process");
 
-function arrayRemove(arr, value) {
-	return arr.filter((ele) => ele != value);
-}
-
 module.exports = {
 	checkUpdateToken: async function (req, res, next) {
 		try {
@@ -26,7 +22,10 @@ module.exports = {
 			} else {
 				// check token validity
 				jwt.verify(oldToken, process.env.SECRET_KEY, (err, decode) => {
-					res.status(401).send(err);
+					if (err) {
+						res.status(401).send(err);
+					}
+					return;
 				});
 			}
 

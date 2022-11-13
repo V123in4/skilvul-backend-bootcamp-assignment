@@ -27,13 +27,13 @@ router.post("/", createToDo);
 // delete all
 router.delete("/", deleteToDoAll);
 
+// edit todo by id
+router.put("/:id", editToDo);
+
 // delete by id
 router.delete("/:id", deleteToDoById);
 
 // get todo desc by id
 router.get("/detail/:id", getDescById);
-
-// edit todo by id
-router.put("/edit/:id", editToDo);
 
 module.exports = router;
