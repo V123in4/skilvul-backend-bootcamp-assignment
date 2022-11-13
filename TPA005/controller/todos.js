@@ -54,7 +54,7 @@ module.exports = {
 			data,
 		};
 
-		res.send(payload);
+		res.status(200).send(payload);
 	},
 
 	getDescById: async (req, res) => {
@@ -74,13 +74,20 @@ module.exports = {
 			data,
 		};
 
-		res.send(payload);
+		res.status(200).send(payload);
 	},
 
-	editToDo: async (req, res) => {
+	editToDoTitle: async (req, res) => {
 		const id_user = jwtID(req.headers.authorization.split(" ")[1]);
 		const { id } = req.params;
 		const body = req.body;
+
+		if (Object.keys(body).includes("title") !== false) {
+			res.status(400).send({
+				message: "req.body.title is not detected",
+			});
+			return;
+		}
 
 		const update = await todo_list.update(
 			{
@@ -96,10 +103,42 @@ module.exports = {
 
 		const payload = {
 			token: req.headers.authorization,
-			message: "Update Succesful",
+			message: "Title Succesfully Updted",
 		};
 
-		res.send(payload);
+		res.status(204).send(payload);
+	},
+
+	editToDoDescription: async (req, res) => {
+		const id_user = jwtID(req.headers.authorization.split(" ")[1]);
+		const { id } = req.params;
+		const body = req.body;
+
+		if (Object.keys(body).includes("description") !== false) {
+			res.status(400).send({
+				message: "req.body.description is not detected",
+			});
+			return;
+		}
+
+		const update = await todo_list.update(
+			{
+				description: body.description,
+			},
+			{
+				where: {
+					id_user: id_user.id,
+					id,
+				},
+			}
+		);
+
+		const payload = {
+			token: req.headers.authorization,
+			message: "Title Succesfully Updted",
+		};
+
+		res.status(204).send(payload);
 	},
 
 	deleteToDoAll: async (req, res) => {
@@ -113,10 +152,10 @@ module.exports = {
 
 		const payload = {
 			token: req.headers.authorization,
-			message: "Delete Succesful",
+			message: `All Todo for user ${id_user} Deleted Succesfully`,
 		};
 
-		res.send(payload);
+		res.status(204).send(payload);
 	},
 	deleteToDoById: async (req, res) => {
 		const id_user = jwtID(req.headers.authorization.split(" ")[1]);
@@ -131,9 +170,9 @@ module.exports = {
 
 		const payload = {
 			token: req.headers.authorization,
-			message: `Delete for user ${id_user.id}, list ${id} Succesful`,
+			message: `Todo for user ${id_user.id}, list ${id} Deleted Succesfully`,
 		};
 
-		res.send(payload);
+		res.status(204).send(payload);
 	},
 };
