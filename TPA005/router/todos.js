@@ -25,9 +25,6 @@ router.get("/", getAll);
 // make new todo
 router.post("/new", createToDo);
 
-// get todo desc
-router.get("/detail", getDescAll);
-
 // get todo desc by id
 router.get("/detail/:id", getDescById);
 

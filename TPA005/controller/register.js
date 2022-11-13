@@ -5,7 +5,7 @@ const bcrypt = require("bcrypt");
 
 module.exports = {
 	registerUser: async (req, res) => {
-		// check apakah username ada di tabel
+		// is email already in table?
 		const data = req.body;
 		const isExist = await user.findAll({
 			where: {
@@ -13,14 +13,15 @@ module.exports = {
 			},
 		});
 
-		// deny jika ada
+		// deny if exsist
 		if (Object.keys(isExist) >= "0") {
+			// error response
 			res.status(400).send({
 				message: "email already registered",
 			});
 		}
 
-		// insert jika tidak ada
+		// insert data
 		const salt = 5;
 
 		bcrypt.hash(data.password, salt, function (err, hash) {
@@ -31,7 +32,7 @@ module.exports = {
 			});
 		});
 
-		// berikan respon berhasil
+		// success response
 		res.status(201).send({
 			message: "account succesfully created",
 		});

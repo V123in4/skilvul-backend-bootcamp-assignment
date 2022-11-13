@@ -16,6 +16,7 @@ module.exports = {
 	createToDo: async (req, res) => {
 		const expectedValues = ["title", "description"];
 		const body = req.body;
+
 		Object.keys(body.data).forEach((d, i) => {
 			if (!expectedValues.includes(d)) {
 				res.status(400).send({
@@ -45,22 +46,6 @@ module.exports = {
 
 		const data = await todo_list.findAll({
 			attributes: ["id", "title", "check", "updatedAt"],
-			where: { id_user: id_user.id },
-		});
-
-		const payload = {
-			token: req.headers.authorization,
-			data,
-		};
-
-		res.send(payload);
-	},
-
-	getDescAll: async (req, res) => {
-		const id_user = jwtID(req.headers.authorization.split(" ")[1]);
-
-		const data = await todo_list.findAll({
-			attributes: ["id", "description"],
 			where: { id_user: id_user.id },
 		});
 

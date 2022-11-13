@@ -8,7 +8,7 @@ const bcrypt = require("bcrypt");
 
 module.exports = {
 	loginUser: async (req, res) => {
-		// terima email + password
+		// get email / password
 		const data = req.body;
 
 		const query = await user.findOne({
@@ -30,7 +30,7 @@ module.exports = {
 					id: query.id,
 				};
 				const token = jwt.sign(payload, process.env.SECRET_KEY, {
-					expiresIn: "30m",
+					expiresIn: "20m",
 				});
 				res.status(200).send({
 					token,
