@@ -35,6 +35,7 @@ module.exports = {
 				res.status(200).send({
 					token,
 				});
+				return;
 			} else {
 				res.status(401).send({
 					message: "password yang anda gunakan salah",
