@@ -25,13 +25,9 @@ module.exports = {
 				console.log("developer key used");
 			} else {
 				// check token validity
-				try {
-					jwt.verify(oldToken, process.env.SECRET_KEY);
-				} catch (error) {
-					res.status(401).send({
-						error,
-					});
-				}
+				jwt.verify(oldToken, process.env.SECRET_KEY, (err, decode) => {
+					res.status(401).send(err);
+				});
 			}
 
 			// same payload from token
@@ -45,11 +41,9 @@ module.exports = {
 				jwt.sign(payload, process.env.SECRET_KEY, {
 					expiresIn: "2h",
 				});
+			next();
 		} catch (error) {
-			res.status(400).send(error);
+			console.error(error);
 		}
-
-		next();
 	},
-	getAll: (req, res) => {},
 };

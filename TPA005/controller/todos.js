@@ -4,12 +4,8 @@ const jwt = require("jsonwebtoken");
 
 const todo_list = db.todo_list;
 
-const jwtID = (token) => {
-	try {
-		return jwt.verify(token, process.env.SECRET_KEY);
-	} catch (error) {
-		throw new Error("Token expired");
-	}
+const jwtID = async (token) => {
+	return await jwt.verify(token, process.env.SECRET_KEY);
 };
 
 module.exports = {
