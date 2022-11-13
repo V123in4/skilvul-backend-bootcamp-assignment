@@ -20,7 +20,7 @@ module.exports = {
 		Object.keys(body.data).forEach((d, i) => {
 			if (!expectedValues.includes(d)) {
 				res.status(400).send({
-					error: `missing ${d} in request body`,
+					error: `missing data.${d} in request body`,
 				});
 			}
 		});
@@ -77,21 +77,14 @@ module.exports = {
 		res.status(200).send(payload);
 	},
 
-	editToDoTitle: async (req, res) => {
+	editToDo: async (req, res) => {
 		const id_user = jwtID(req.headers.authorization.split(" ")[1]);
 		const { id } = req.params;
 		const body = req.body;
 
-		if (Object.keys(body).includes("title") !== false) {
-			res.status(400).send({
-				message: "req.body.title is not detected",
-			});
-			return;
-		}
-
 		const update = await todo_list.update(
 			{
-				title: body.title,
+				title: body.data.title,
 			},
 			{
 				where: {
@@ -106,39 +99,7 @@ module.exports = {
 			message: "Title Succesfully Updted",
 		};
 
-		res.status(204).send(payload);
-	},
-
-	editToDoDescription: async (req, res) => {
-		const id_user = jwtID(req.headers.authorization.split(" ")[1]);
-		const { id } = req.params;
-		const body = req.body;
-
-		if (Object.keys(body).includes("description") !== false) {
-			res.status(400).send({
-				message: "req.body.description is not detected",
-			});
-			return;
-		}
-
-		const update = await todo_list.update(
-			{
-				description: body.description,
-			},
-			{
-				where: {
-					id_user: id_user.id,
-					id,
-				},
-			}
-		);
-
-		const payload = {
-			token: req.headers.authorization,
-			message: "Title Succesfully Updted",
-		};
-
-		res.status(204).send(payload);
+		res.status(200).send(payload);
 	},
 
 	deleteToDoAll: async (req, res) => {
@@ -155,7 +116,7 @@ module.exports = {
 			message: `All Todo for user ${id_user} Deleted Succesfully`,
 		};
 
-		res.status(204).send(payload);
+		res.status(200).send(payload);
 	},
 	deleteToDoById: async (req, res) => {
 		const id_user = jwtID(req.headers.authorization.split(" ")[1]);
@@ -173,6 +134,6 @@ module.exports = {
 			message: `Todo for user ${id_user.id}, list ${id} Deleted Succesfully`,
 		};
 
-		res.status(204).send(payload);
+		res.status(200).send(payload);
 	},
 };

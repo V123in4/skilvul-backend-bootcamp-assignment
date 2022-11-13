@@ -13,31 +13,27 @@ const {
 	createToDo,
 	getAll,
 	getDescById,
-	editToDoTitle,
+	editToDo,
 	deleteToDoAll,
 	deleteToDoById,
-	editToDoDescription,
 } = require("../controller/todos");
 
 // get all todo without desc
 router.get("/", getAll);
 
 // make new todo
-router.post("/new", createToDo);
+router.post("/", createToDo);
+
+// delete all
+router.delete("/", deleteToDoAll);
+
+// delete by id
+router.delete("/:id", deleteToDoById);
 
 // get todo desc by id
 router.get("/detail/:id", getDescById);
 
 // edit todo by id
-router.put("/edit/:id/title", editToDoTitle);
-
-// edit todo desc by id
-router.put("/edit/:id/description", editToDoDescription);
-
-// delete all
-router.delete("/delete", deleteToDoAll);
-
-// delete by id
-router.delete("/delete/:id", deleteToDoById);
+router.put("/edit/:id", editToDo);
 
 module.exports = router;
