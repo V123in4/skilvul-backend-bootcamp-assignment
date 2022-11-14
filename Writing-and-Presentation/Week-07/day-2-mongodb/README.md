@@ -31,6 +31,7 @@ Cara installasi:
 2. klik file yang didownload tadi dan compass harusnya langsung terinstall.
 
 # CRUD menggunakan MongoDB
+Penjelasan hanya dilakukan pada perintah yang sering digunakan. Untuk lebih lengkapnya dapat klik [disini](https://www.mongodb.com/docs/).
 ## Inisialisasi MongoDB.
 1. buka mongoShell
 2. lihat database yang ada menggunakan `show dbs`
