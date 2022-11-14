@@ -4,9 +4,8 @@
 command inisialisasi dapat dilihat di file `init.sh`
 
 ## Register
-### endpoint: `host/register`
 pertamakali digunakan untuk menyimpan akun di database.
-#### HTTP POST
+#### POST: `host/register`
 ##### request body:
 ```json
 {
@@ -20,11 +19,9 @@ jika akun berhasil dibuat akan memberikan pesan, jika akun sudah ada di database
 
 
 ## Login
-
-### endpoint: `host/login`
 berfungsi untuk proses authorisasi. Client setelah terauthorisasi menerima token, token harus disertakan di header authentication Bearer untuk authentikasi masa depan.
 
-#### HTTP POST
+#### POST: `host/login`
 ##### Request body
 ```json
 {
@@ -39,10 +36,14 @@ berfungsi untuk proses authorisasi. Client setelah terauthorisasi menerima token
 }
 ```
 ## ToDo
-### endpoint: `host/todos`
-endpoint ini akan mengirimkan sebuah token baru untuk update token lama sehingga sesi akan terus berlanjut jika melakukan aksi.
+endpoint ini akan mengirimkan sebuah token baru untuk update token lama sehingga sesi akan terus berlanjut jika melakukan aksi. Token baru dikirim dengan format.
+```json
+{
+    "token" : "thisistoken"
+}
+```
 
-#### HTTP GET
+### GET: `host/todos`
 Header Bearer harus disertakan. Endpoint bertugas mengambil seluruh todolist yang dimiliki user tersebut. Request akan merespon dengan sebuah token baru dan data berbentuk array of objects
 ```json
 {
@@ -55,9 +56,10 @@ Header Bearer harus disertakan. Endpoint bertugas mengambil seluruh todolist yan
             "updatedAt": "2022-11-13T10:29:45.000Z"
         }
     ]
+}
 ```
 
-#### HTTP POST
+### POST: `host/todos`
 Header Bearer harus disertakan. Endpoint bertugas untuk membuat sebuah todo list milik user.
 
 ##### Request Body
@@ -72,23 +74,11 @@ Header Bearer harus disertakan. Endpoint bertugas untuk membuat sebuah todo list
 
 
 
-#### HTTP DELETE
+### DELETE: `host/todos`
 Header Bearer harus disertakan. Endpoint bertugas untuk menghapus **SELURUH todolist** yang dimiliki oleh User.
 
-### endpoint: `host/todos/:id`
-endpoint ini akan mengirimkan sebuah token baru untuk update token lama sehingga sesi akan terus berlanjut jika melakukan aksi.
-
-#### HTTP PUT
-Header Bearer harus disertakan. Endpoint bertugas untuk mengedit todolist berdasarkan user dan id todolist. request harus disertakan dengan body
-```json
-{
-    "data":  {
-        "title" : "titfssf"
-    }
-}
-```
-
-##### Request Body
+### PUT: `host/todos/:id`
+Header Bearer harus disertakan. Endpoint bertugas untuk mengedit todolist berdasarkan user dan id todolist. Request harus disertakan dengan body
 ```json
 {
     "data":  {
@@ -97,14 +87,20 @@ Header Bearer harus disertakan. Endpoint bertugas untuk mengedit todolist berdas
 }
 ```
 
-
-#### HTTP DELETE
+### DELETE: `host/todos/:id`
 Header Bearer harus disertakan. Endpoint bertugas untuk menghapus todolist berdasarkan user dan id todolist.
 
-
-### endpoint: `host/detail/:id`
-endpoint ini akan mengirimkan sebuah token baru untuk update token lama sehingga sesi akan terus berlanjut jika melakukan aksi.
-#### HTTP GET
+### GET: `host/detail/:id`
 Header Bearer harus disertakan. Endpoint bertugas untuk mengembalikan detail dari todolist berdasarkan id yang diberikan.
-
-
+```json
+{
+    "token": "Bearer thisistoken",
+    "data": [
+        {
+            "id": 26,
+            "description": "asdlkfjadsas;jkl",
+            "updatedAt": "2022-11-13T10:29:45.000Z"
+        }
+    ]
+}
+```
