@@ -4,6 +4,57 @@ sebelumnya sudah diajari cara pembuatan model sampai migrasi ke database mysql. 
 # Seeder
 seeder adalah sebuah file yang dapat dibuat melaui sequelize-cli. File seeder berguna untuk membuat data dummy pada tabel data dummy pada tabel dapat membantu proses querying dalam development.
 
+file seeder berada di direktori seeder dan dapat dibuat menggunakan command 
+### Membuat seeder file
+```bash
+$ npx sequelize-cli seed:generate --name nama-file
+```
+
+kemudian file dengan nama "nama file" dibuat di direktor seeder
+
+### Modifikasi file seeder
+file tersebut berisikan seperti ini dan dapat dimodifikasikan sesuai dengan kebutuhan.
+```js
+"use strict";
+
+/** @type {import('sequelize-cli').Migration} */
+module.exports = {
+	async up(queryInterface, Sequelize) {
+		/**
+		 * Add seed commands here.
+		 *
+		 * Example:
+		 * await queryInterface.bulkInsert('People', [{
+		 *   name: 'John Doe',
+		 *   isBetaMember: false
+		 * }], {});
+		 */
+	},
+
+	async down(queryInterface, Sequelize) {
+		/**
+		 * Add commands to revert seed here.
+		 *
+		 * Example:
+		 * await queryInterface.bulkDelete('People', null, {});
+		 */
+	},
+};
+```
+async down akan dijalankan dengan perintah undo, dan up dijalankan dengan file seed.
+
+### Menjalankan file seeder
+``` bash
+$ npx sequelize-cli db:seed:all
+```
+
+### Undo file seeder
+```bash
+$ npx sequelize-cli db:seed:undo # undo seeder terakhir
+$ npx sequelize-cli db:seed:undo --seed file-name # undo 1 dengan sebuah file seeder
+$ npx sequelize-cli db:seed:undo:all # undo dengan seluruh file seeder 
+```
+
 # CRUD menggunakan sequelize
 CRUD menggunakan sequelize sangatlah luas dan banyak method untuk menggunakannya, disini hanya dibahas fungsi-fungsi yang sering digunakan. Info lebih lanjut dapat dilihat [dilink ini](https://www.google.com/search?q=sequelize+documentation).
 
