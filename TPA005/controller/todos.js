@@ -101,7 +101,7 @@ module.exports = {
 	deleteToDoAll: async (req, res) => {
 		const id_user = jwtID(req.headers.authorization.split(" ")[1]);
 
-		const update = await todo_list.destroy({
+		const deleteAll = await todo_list.destroy({
 			where: {
 				id_user: id_user.id,
 			},
@@ -118,7 +118,7 @@ module.exports = {
 		const id_user = jwtID(req.headers.authorization.split(" ")[1]);
 		const { id } = req.params;
 
-		const s = await todo_list.destroy({
+		const deleteOne = await todo_list.destroy({
 			where: {
 				id_user: id_user.id,
 				id,
