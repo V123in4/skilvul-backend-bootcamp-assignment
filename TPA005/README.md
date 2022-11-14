@@ -5,7 +5,7 @@ command inisialisasi dapat dilihat di file `init.sh`
 
 ## Register
 pertamakali digunakan untuk menyimpan akun di database.
-#### POST: `host/register`
+#### POST: `localhost:PORT/register`
 ##### request body:
 ```json
 {
@@ -21,7 +21,7 @@ jika akun berhasil dibuat akan memberikan pesan, jika akun sudah ada di database
 ## Login
 berfungsi untuk proses authorisasi. Client setelah terauthorisasi menerima token, token harus disertakan di header authentication Bearer untuk authentikasi masa depan.
 
-#### POST: `host/login`
+#### POST: `localhost:PORT/login`
 ##### Request body
 ```json
 {
@@ -43,7 +43,7 @@ endpoint ini akan mengirimkan sebuah token baru untuk update token lama sehingga
 }
 ```
 
-### GET: `host/todos`
+### GET: `localhost:PORT/todos`
 Header Bearer harus disertakan. Endpoint bertugas mengambil seluruh todolist yang dimiliki user tersebut. Request akan merespon dengan sebuah token baru dan data berbentuk array of objects
 ```json
 {
@@ -59,7 +59,7 @@ Header Bearer harus disertakan. Endpoint bertugas mengambil seluruh todolist yan
 }
 ```
 
-### POST: `host/todos`
+### POST: `localhost:PORT/todos`
 Header Bearer harus disertakan. Endpoint bertugas untuk membuat sebuah todo list milik user.
 
 ##### Request Body
@@ -74,10 +74,10 @@ Header Bearer harus disertakan. Endpoint bertugas untuk membuat sebuah todo list
 
 
 
-### DELETE: `host/todos`
+### DELETE: `localhost:PORT/todos`
 Header Bearer harus disertakan. Endpoint bertugas untuk menghapus **SELURUH todolist** yang dimiliki oleh User.
 
-### PUT: `host/todos/:id`
+### PUT: `localhost:PORT/todos/:id`
 Header Bearer harus disertakan. Endpoint bertugas untuk mengedit todolist berdasarkan user dan id todolist. Request harus disertakan dengan body
 ```json
 {
@@ -87,10 +87,10 @@ Header Bearer harus disertakan. Endpoint bertugas untuk mengedit todolist berdas
 }
 ```
 
-### DELETE: `host/todos/:id`
+### DELETE: `localhost:PORT/todos/:id`
 Header Bearer harus disertakan. Endpoint bertugas untuk menghapus todolist berdasarkan user dan id todolist.
 
-### GET: `host/detail/:id`
+### GET: `localhost:PORT/detail/:id`
 Header Bearer harus disertakan. Endpoint bertugas untuk mengembalikan detail dari todolist berdasarkan id yang diberikan.
 ```json
 {
